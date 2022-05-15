@@ -7,6 +7,7 @@ import Contato from './componentes/paginas/Contato'
 import Sobre from './componentes/paginas/Sobre'
 import Entrar from './componentes/paginas/Entrar'
 import Cadastro from './componentes/paginas/Cadastro'
+import ListagemProjetos from './componentes/paginas/ListagemProjetos'
 
 
 import Navbar from './componentes/layouts/Navbar'
@@ -24,6 +25,7 @@ function App() {
             <Route path="/sobre" element={<Sobre />}></Route>
             <Route path="/entrar" element={<Entrar />}></Route>
             <Route path="/cadastro" element={<Cadastro/>}></Route>
+            <Route path="/listagem" element={<ListagemProjetos />}></Route>
           </Routes>
         </Container>
       </Router>
@@ -32,3 +34,4 @@ function App() {
 }
 
 export default App;
+App;
