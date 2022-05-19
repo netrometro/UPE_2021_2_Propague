@@ -12,6 +12,7 @@ import ListagemProjetos from './componentes/paginas/ListagemProjetos'
 
 import Navbar from './componentes/layouts/Navbar'
 import Container from './componentes/layouts/Container'
+import Propaganda from './componentes/paginas/Propaganda';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/entrar" element={<Entrar />}></Route>
             <Route path="/cadastro" element={<Cadastro/>}></Route>
             <Route path="/listagem" element={<ListagemProjetos />}></Route>
+            <Route path="/propaganda" element={<Propaganda/>}></Route>
           </Routes>
         </Container>
       </Router>
@@ -34,4 +36,4 @@ function App() {
 }
 
 export default App;
-App;
+
