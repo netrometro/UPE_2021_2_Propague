@@ -1,6 +1,7 @@
 import styles from "../assets/Form.module.css"
 import {useState} from "react"
-
+import { Link } from 'react-router-dom'
+import style from '../../paginas/assets/Propaganda.module.css'
 
 function Propaganda() {
   const[form, setForm] = useState({
@@ -79,7 +80,8 @@ function Propaganda() {
         }
       />
       <div>
-        <button>Publicar</button>
+        <button className={style.button}>
+        <Link to="/home">Publicar</Link></button>
       </div>
     </div>
     )
