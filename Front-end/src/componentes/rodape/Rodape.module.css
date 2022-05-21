@@ -1,0 +1,55 @@
+   
+.Box{
+  padding: 20px 20x;
+  background: black;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  
+   
+  @media (max-width: 1000px) {
+    padding: 70px 30px;
+  }
+;
+}
+   
+.Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+   
+.Column{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 60px;
+;}
+   
+.Row{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 
+                         minmax(185px, 1fr));
+  grid-gap: 20px;
+   
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(auto-fill, 
+                           minmax(200px, 1fr));
+  }
+;}
+   
+.FooterLink{
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-decoration: none;
+}
+   
+.Heading{
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 40px;
+  font-weight: bold;
+;}

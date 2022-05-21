@@ -1,6 +1,5 @@
 import styles from './assets/Entrar.module.css'
 import FormPropaganda from '../forms/propaganda/FormPropaganda'
-
 function Propaganda(){
     return(
         <div>
