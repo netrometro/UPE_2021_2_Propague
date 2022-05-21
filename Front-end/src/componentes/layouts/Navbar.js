@@ -9,7 +9,7 @@ function Navbar() {
                 <p>Propague</p>
             </Link>
             <ul className={styles.list}>
-                <li><Link to="/contato">Contato</Link></li>
+                <li><Link to="/faleconosco">Fale Conosco</Link></li>
                 <li><Link to="/sobre">Sobre</Link></li>
                 <li><Link to="/entrar">Entrar</Link></li>
             </ul>

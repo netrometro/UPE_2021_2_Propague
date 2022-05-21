@@ -3,3 +3,19 @@ body {
     margin: 0;
     background-color: #e5e5e5;
 }
+
+@media screen and (max-width:768px){
+    section, aside {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:600px){
+    nav li {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+}
+
