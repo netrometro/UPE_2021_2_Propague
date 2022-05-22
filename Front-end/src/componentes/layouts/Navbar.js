@@ -9,9 +9,9 @@ function Navbar() {
                 <p>Propague</p>
             </Link>
             <ul className={styles.list}>
-                <li><Link to="/faleconosco">Fale Conosco</Link></li>
-                <li><Link to="/sobre">Sobre</Link></li>
-                <li><Link to="/entrar">Entrar</Link></li>
+            <li className={styles.navItem}><Link to="/faleconosco">Fale Conosco</Link></li>
+            <li className={styles.navItem}><Link to="/sobre">Sobre</Link></li>
+            <li className={styles.navItem}><Link to="/entrar">Entrar</Link></li>
             </ul>
         </nav>
     )

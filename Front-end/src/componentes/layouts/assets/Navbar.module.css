@@ -29,6 +29,14 @@
     align-items: center;
 }
 
+@media (max-width: 600px) {
+    .navItem{
+        font-size:13px;
+    }
+     
+}
+
+
 .list li {
     margin-right: 1em;
 }
