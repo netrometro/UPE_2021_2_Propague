@@ -19,5 +19,6 @@ public class Midia {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    private String titulo;
 
 }
