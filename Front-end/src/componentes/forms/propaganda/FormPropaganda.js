@@ -1,90 +1,74 @@
-import styles from "../assets/Form.module.css"
-import {useState} from "react"
-import { Link } from 'react-router-dom'
-import style from '../../paginas/assets/Propaganda.module.css'
+import styles from "../assets/Form.module.css";
+import { useState } from "react";
+import LinkButton from '../../layouts/LinkButton'
 
 function Propaganda() {
-  const[form, setForm] = useState({
-    empresa: "",
-    contato: "",  
-    midia: "",
-    proprietario: "",
-    publicidade: "",
-  })
+  const [form, setForm] = useState({
+    nome: "",
+    descricao: "",
+    categoria: "",
+    imagem: "",
+  });
 
-    return(
-        <div className={styles.form}>
-      <p>Nome da sua empresa</p>
+  return (
+    <div className={styles.form}>
+      <p>Nome do seu anúncio</p>
       <input
         type="text"
-        placeholder="Ex.: Propague"
+        placeholder="Ex.: Roupas do Didi"
         name=""
         id=""
         onChange={(e) =>
           setForm({
             ...form,
-            empresa: e.target.value,
+            nome: e.target.value,
           })
         }
       />
-      <p>Endereço de contato</p>
+      <p>Descrição</p>
       <input
         type="text"
-        placeholder="Ex.: (87) 991920341"
+        placeholder="Ex.: Roupa da marca X em perfeito estado"
         name=""
         id=""
         onChange={(e) =>
           setForm({
             ...form,
-            contato: e.target.value,
+            descricao: e.target.value,
           })
         }
       />
-      <p>Veiculação da mídia</p>
+      <p>Categoria</p>
       <input
         type="text"
-        placeholder="Ex.: Instagram"
+        placeholder="Ex.: Roupas"
         name=""
         id=""
         onChange={(e) =>
           setForm({
             ...form,
-            midia: e.target.value,
+            categoria: e.target.value,
           })
         }
       />
-      <p>Nome do proprietário</p>
+      <p>Imagem</p>
       <input
-        type="text"
-        placeholder="Ex.: Carlos"
+        type="file"
+        placeholder="Ex.: roupa.png"
         name=""
         id=""
         onChange={(e) =>
           setForm({
             ...form,
-            proprietario: e.target.value,
+            imagem: e.target.value,
           })
         }
       />
-      <p>Motivo de sua publicidade</p>
-      <input
-        type="text"
-        placeholder="Ex.: Promoção de fim de ano!"
-        name=""
-        id=""
-        onChange={(e) =>
-          setForm({
-            ...form,
-            publicidade: e.target.value,
-          })
-        }
-      />
-      <div>
-        <button className={style.button}>
-        <Link to="/home">Publicar</Link></button>
+      <div className={styles.button}>
+        <LinkButton to="/propaganda" text="Criar anúncio"/>
       </div>
     </div>
-    )
+  );
 }
 
-export default Propaganda
+export default Propaganda;
