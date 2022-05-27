@@ -8,6 +8,7 @@ import Sobre from './componentes/paginas/Sobre'
 import Entrar from './componentes/paginas/Entrar'
 import Cadastro from './componentes/paginas/Cadastro'
 import ListagemProjetos from './componentes/paginas/ListagemProjetos'
+import Footer from './componentes/rodape/footer';
 
 
 import Navbar from './componentes/layouts/Navbar'
@@ -38,6 +39,7 @@ function App() {
           </Container>
         </Provider>
       </Router>
+      <Footer/>
     </div>
   );
 }
