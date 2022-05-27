@@ -14,13 +14,13 @@ export default function ListagemProjetos() {
 
     const [ listaProjetos, setListaProjetos ] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:8080/projetos')
-        .then(response => response.json())
-        .then(data => {
-            setListaProjetos(data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/projetos')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setListaProjetos(data);
+    //     });
+    // }, []);
     
     return(
         <div className={style.container}>

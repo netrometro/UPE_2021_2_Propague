@@ -1,8 +1,27 @@
 import styles from './assets/Navbar.module.css';
 
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
 
 function Navbar() {
+    const [usuarioLogado, setUsuarioLogado] = useState(false);
+    const userEmail = localStorage.getItem('emailUsuario')
+    console.log(userEmail)
+
+    useEffect(() => {
+        if(userEmail){
+            setUsuarioLogado(true)
+        } else {
+            setUsuarioLogado(false)
+        }
+    }, [])
+
+    const sair = () => {
+        localStorage.clear()
+        setUsuarioLogado(false)
+    }
+
+
     return (
         <nav className={styles.navbar}>
             <Link to="/" className={styles.slogan}>
@@ -11,7 +30,10 @@ function Navbar() {
             <ul className={styles.list}>
             <li className={styles.navItem}><Link to="/faleconosco">Fale Conosco</Link></li>
             <li className={styles.navItem}><Link to="/sobre">Sobre</Link></li>
-            <li className={styles.navItem}><Link to="/entrar">Entrar</Link></li>
+            {usuarioLogado ? 
+                <li className={styles.navItem} onClick={sair}><Link to="">Sair</Link></li> : 
+                <li className={styles.navItem}><Link to="/entrar">Entrar </Link></li>}
+            {/* <li className={styles.navItem}><Link to="/entrar">Entrar</Link></li> */}
             </ul>
         </nav>
     )

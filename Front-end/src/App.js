@@ -27,11 +27,11 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />}></Route>
               <Route path="/faleconosco" element={<FaleConosco />}></Route>
-              <Route path="/sobre" element={<Sobre />}></Route>
+              <Route path="/sobre" element={<Sobre />}></Route> 
               <Route path="/entrar" element={<Entrar />}></Route>
               <Route path="/cadastro" element={<Cadastro/>}></Route>
-              <Route path="/propaganda" element={<Propaganda/>}></Route>
               <Route exact path='/' element={<PrivateRoute/>}>
+                <Route path="/propaganda" element={<Propaganda/>}></Route>
                 <Route path="/listagem" element={<ListagemProjetos />}></Route>
               </Route>
             </Routes>
