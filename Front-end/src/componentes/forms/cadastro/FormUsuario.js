@@ -5,8 +5,33 @@ function FormUsuario() {
   const [form, setForm] = useState({
     email: "",
     senha: "",
-    tipo: "Cliente",
+    tipos: [
+      {
+        "id": 9,
+        "nome": "Cliente",
+      }
+    ]
   });
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch("http://localhost:8080/api/usuario/salvar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    })
+    .then(response => response.json())
+    .then(data => {
+      window.alert("Usuário cadastrado com sucesso!")
+      console.log(data);
+    })
+
+
+
+  };
 
   return (
     <div>
@@ -37,7 +62,7 @@ function FormUsuario() {
           }
         />
         <div>
-          <button>Cadastre-se</button>
+          <button onClick={handleRegister}>Cadastre-se</button>
         </div>
       </div>
     </div>
