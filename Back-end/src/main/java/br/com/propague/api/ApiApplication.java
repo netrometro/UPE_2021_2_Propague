@@ -25,25 +25,16 @@ public class ApiApplication {
 		return new BCryptPasswordEncoder();
 	}
 
-	    @Bean
-		CommandLineRunner run(UsuarioService usuarioService) {
-        return args -> {
-//            usuarioService.salvarTipoUsuario(new TipoUsuario(null, "Cliente"));
-//            usuarioService.salvarTipoUsuario(new TipoUsuario(null, "Colaborador"));
+	@Bean
+	CommandLineRunner run(UsuarioService usuarioService) {
+	return args -> {
+//      usuarioService.salvarTipoUsuario(new TipoUsuario(null, "Cliente"));
+//      usuarioService.salvarTipoUsuario(new TipoUsuario(null, "Colaborador"));
+//		usuarioService.salvarUsuario(new Usuario(null, "Gabriel", "gabriel@gmail.com", "1234", new ArrayList<>()));
+//		usuarioService.salvarUsuario(new Usuario(null, "Jose", "jose@gmail.com", "1234", new ArrayList<>()));
+//		usuarioService.atribuirTipoAoUsuario("gabriel@gmail.com", "Cliente");
+//		usuarioService.atribuirTipoAoUsuario("jose@gmail.com", "Colaborador");
 
-//            usuarioService.salvarUsuario(new Usuario(null, "Gabriel", "gabriel@gmail.com", "1234", "12345567800",
-//                    "98888898", new ArrayList<>()));
-//            usuarioService.salvarUsuario(new Usuario(null, "Admin", "admin@gmail.com", "1234", "12345567800",
-//                    "98888898", new ArrayList<>()));
-
-//			usuarioService.salvarUsuario(new Usuario(null, "Gabriel", "gabriel@gmail.com", "1234", new ArrayList<>()));
-//			usuarioService.salvarUsuario(new Usuario(null, "Jose", "jose@gmail.com", "1234", new ArrayList<>()));
-////
-//			usuarioService.atribuirTipoAoUsuario("gabriel@gmail.com", "Cliente");
-//			usuarioService.atribuirTipoAoUsuario("jose@gmail.com", "Colaborador");
-
-//			usuarioService.addTipoUsuarioParaUsuario("gabriel@gmail.com", "Normal");
-//            usuarioService.addTipoUsuarioParaUsuario("admin@gmail.com", "Administrador");
         };
     }
 }
