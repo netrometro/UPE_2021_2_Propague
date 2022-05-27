@@ -54,6 +54,7 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
 
 	@Override
 	public Usuario getUsuario(String email) {
+		log.info("Buscando usuário: " + email);
 		return repositorioUsuario.findByEmail(email);
 	}
 
