@@ -1,7 +1,5 @@
 package br.com.propague.api.model;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +17,9 @@ public class Midia {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String titulo;
+    private String nome;
+    private String descricao;
+    private String imagem;
+    private Long usuario_id;
 
 }
