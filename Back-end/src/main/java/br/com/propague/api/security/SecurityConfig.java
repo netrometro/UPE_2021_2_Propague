@@ -1,6 +1,7 @@
 package br.com.propague.api.security;
 
 import br.com.propague.api.filtro.AuthenticationCustomFilter;
+import br.com.propague.api.filtro.AuthorizationCustomFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -66,14 +67,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
 //        http.authorizeRequests().antMatchers(GET, "/api/usuarios/**").hasAnyAuthority( "Administrador");
 //        http.authorizeRequests().anyRequest().authenticated();
 //        http.addFilter(customAuthenticationFilter);
-//        http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new AuthorizationCustomFilter(), UsernamePasswordAuthenticationFilter.class);
         http.authorizeRequests()
                 .antMatchers(POST,"/api/**").permitAll()
                 .antMatchers(GET, "/api/**").permitAll()
                 .anyRequest().authenticated()
                 .and().cors().and().csrf().disable();
         http.addFilter(customAuthenticationFilter);
-        http.addFilterBefore(customAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(customAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean

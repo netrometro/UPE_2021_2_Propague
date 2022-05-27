@@ -1,10 +1,16 @@
 package br.com.propague.api;
 
+import br.com.propague.api.model.TipoUsuario;
+import br.com.propague.api.model.Usuario;
+import br.com.propague.api.service.UsuarioService;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.ArrayList;
 
 @EnableJpaRepositories(basePackages = {"br.com.propague.api"})
 @SpringBootApplication
@@ -18,4 +24,26 @@ public class ApiApplication {
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
+	    @Bean
+		CommandLineRunner run(UsuarioService usuarioService) {
+        return args -> {
+//            usuarioService.salvarTipoUsuario(new TipoUsuario(null, "Cliente"));
+//            usuarioService.salvarTipoUsuario(new TipoUsuario(null, "Colaborador"));
+
+//            usuarioService.salvarUsuario(new Usuario(null, "Gabriel", "gabriel@gmail.com", "1234", "12345567800",
+//                    "98888898", new ArrayList<>()));
+//            usuarioService.salvarUsuario(new Usuario(null, "Admin", "admin@gmail.com", "1234", "12345567800",
+//                    "98888898", new ArrayList<>()));
+
+//			usuarioService.salvarUsuario(new Usuario(null, "Gabriel", "gabriel@gmail.com", "1234", new ArrayList<>()));
+//			usuarioService.salvarUsuario(new Usuario(null, "Jose", "jose@gmail.com", "1234", new ArrayList<>()));
+////
+//			usuarioService.atribuirTipoAoUsuario("gabriel@gmail.com", "Cliente");
+//			usuarioService.atribuirTipoAoUsuario("jose@gmail.com", "Colaborador");
+
+//			usuarioService.addTipoUsuarioParaUsuario("gabriel@gmail.com", "Normal");
+//            usuarioService.addTipoUsuarioParaUsuario("admin@gmail.com", "Administrador");
+        };
+    }
 }
