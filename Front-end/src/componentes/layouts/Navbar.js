@@ -14,7 +14,26 @@ function Navbar() {
         } else {
             setUsuarioLogado(false)
         }
+        pegarUsuario()
     }, [])
+
+    const pegarUsuario = () => {
+        if(usuarioLogado) {
+            fetch(`http://localhost:8080/api/usuario/${userEmail}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('idUsuario', data.id)
+                localStorage.setItem('nomeUsuario', data.nome)
+            }
+            )
+        }
+    }
 
     const sair = () => {
         localStorage.clear()

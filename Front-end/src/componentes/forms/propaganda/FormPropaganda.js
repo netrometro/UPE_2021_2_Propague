@@ -3,12 +3,47 @@ import { useState } from "react";
 import LinkButton from '../../layouts/LinkButton'
 
 function Propaganda() {
+  const idUsuario = localStorage.getItem("idUsuario");
   const [form, setForm] = useState({
     nome: "",
     descricao: "",
-    categoria: "",
     imagem: "",
+    usuario_id: idUsuario,
   });
+
+  const handleNome = (e) => {
+    setForm({
+      ...form,
+      nome: e.target.value,
+    });
+  };
+
+  const handleDescricao = (e) => {
+    setForm({
+      ...form,
+      descricao: e.target.value,
+    });
+  };
+
+  const handleImagem = (e) => {
+    setForm({
+      ...form,
+      imagem: "https://via.placeholder.com/150",
+    });
+  };
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:8080/api/midia", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    console.log(response);
+  }
 
   return (
     <div className={styles.form}>
@@ -18,12 +53,8 @@ function Propaganda() {
         placeholder="Ex.: Roupas do Didi"
         name=""
         id=""
-        onChange={(e) =>
-          setForm({
-            ...form,
-            nome: e.target.value,
-          })
-        }
+        onChange={handleNome}
+        value={form.nome}
       />
       <p>Descrição</p>
       <input
@@ -31,41 +62,21 @@ function Propaganda() {
         placeholder="Ex.: Roupa da marca X em perfeito estado"
         name=""
         id=""
-        onChange={(e) =>
-          setForm({
-            ...form,
-            descricao: e.target.value,
-          })
-        }
+        onChange={handleDescricao}
+        value={form.descricao}
       />
-      <p>Categoria</p>
-      <input
-        type="text"
-        placeholder="Ex.: Roupas"
-        name=""
-        id=""
-        onChange={(e) =>
-          setForm({
-            ...form,
-            categoria: e.target.value,
-          })
-        }
-      />
+    
       <p>Imagem</p>
       <input
         type="file"
         placeholder="Ex.: roupa.png"
         name=""
         id=""
-        onChange={(e) =>
-          setForm({
-            ...form,
-            imagem: e.target.value,
-          })
-        }
+        onChange={handleImagem}
+        value={form.imagem}
       />
-      <div className={styles.button}>
-        <LinkButton to="/propaganda" text="Criar anúncio"/>
+      <div className={styles.button} onClick={submit}>
+        <LinkButton to="/" text="Criar anúncio"/>
       </div>
     </div>
   );

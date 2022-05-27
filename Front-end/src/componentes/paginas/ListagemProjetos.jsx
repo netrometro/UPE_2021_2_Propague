@@ -3,28 +3,28 @@ import React, { useState, useEffect } from 'react';
 
 export default function ListagemProjetos() {
 
-    const [ projetos, setProjetos ] = useState({
-        nome: "",
-        descricao: "",
-        dataInicio: "",
-        dataFim: "",
-        status: "",
-        id: ""
-    });
-
     const [ listaProjetos, setListaProjetos ] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('http://localhost:8080/projetos')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         setListaProjetos(data);
-    //     });
-    // }, []);
+    useEffect(() => {
+        fetch('http://localhost:8080/api/midias')
+            .then(response => response.json())
+            .then(data => setListaProjetos(data))
+    }, []);
     
     return(
-        <div className={style.container}>
-            <div className={style.projeto}>
+        <div className={style.listagem}>
+            {listaProjetos.map(projeto => (
+                <div className={style.projeto} key={projeto.id}>
+                    <div className={style.imagem}>
+                        <img src="{projeto.imagem}" alt=""/>
+                    </div>
+                    <div className={style.descricao}>
+                        <h3>{projeto.nome}</h3>
+                        <p>{projeto.descricao}</p>
+                    </div>
+                </div>
+            ))}
+            {/* <div className={style.projeto}>
                 <div className={style.imagem}>
                     <img src="https://via.placeholder.com/150" alt=""/>
                 </div>
@@ -32,8 +32,8 @@ export default function ListagemProjetos() {
                     <h3>Projeto 1</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
                 </div>
-            </div>
-            <div className={style.projeto}>
+            </div> */}
+            {/* <div className={style.projeto}>
                 <div className={style.imagem}>
                     <img src="https://via.placeholder.com/150" alt=""/>
                 </div>
@@ -41,7 +41,7 @@ export default function ListagemProjetos() {
                     <h3>Projeto 1</h3>  
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
