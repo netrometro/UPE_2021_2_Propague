@@ -16,7 +16,7 @@ function FormUsuario() {
   const handleRegister = async (e) => {
     e.preventDefault();
     
-    const response = await fetch(API_URL + "api/usuario/salvar", {
+    const response = await fetch("http://localhost:8080/api/usuario/salvar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
