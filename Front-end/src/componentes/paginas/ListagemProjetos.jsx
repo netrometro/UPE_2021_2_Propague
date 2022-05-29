@@ -16,7 +16,7 @@ export default function ListagemProjetos() {
             {listaProjetos.map(projeto => (
                 <div className={style.projeto} key={projeto.id}>
                     <div className={style.imagem}>
-                        <img src="{projeto.imagem}" alt=""/>
+                        <img src={projeto.imagem} alt=""/>
                     </div>
                     <div className={style.descricao}>
                         <h3>{projeto.nome}</h3>
