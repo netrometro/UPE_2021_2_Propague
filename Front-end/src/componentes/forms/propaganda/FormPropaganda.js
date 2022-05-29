@@ -26,10 +26,23 @@ function Propaganda() {
   };
 
   const handleImagem = (e) => {
-    setForm({
-      ...form,
-      imagem: "https://via.placeholder.com/150",
-    });
+    e.preventDefault()
+    const formData = new FormData()
+    formData.append("file", e.target.files[0]);
+    formData.append("upload_preset", "r2kismvj")
+    console.log(formData)
+    fetch("https://api.cloudinary.com/v1_1/dgkyahn55/image/upload", {
+            method: "POST",
+            body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setForm({
+        ...form,
+        imagem: data.url
+      })
+    })
   };
 
   const submit = async (e) => {
@@ -73,7 +86,6 @@ function Propaganda() {
         name=""
         id=""
         onChange={handleImagem}
-        value={form.imagem}
       />
       <div className={styles.button} onClick={submit}>
         <LinkButton to="/" text="Criar anúncio"/>

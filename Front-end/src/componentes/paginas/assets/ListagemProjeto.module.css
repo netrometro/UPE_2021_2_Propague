@@ -1,3 +1,8 @@
 .listagem {
     height: 80vh;
 }
+
+.imagem img{
+    max-width: 150px;
+    max-height: 150px;
+}
